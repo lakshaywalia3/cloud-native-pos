@@ -1,17 +1,14 @@
-# Use a slim Python image
-FROM python:3.10-slim
-
-# Install system dependencies needed for psycopg2
-RUN apt-get update && apt-get install -y \
-    libpq-dev \
-    gcc \
-    && rm -rf /var/lib/apt/lists/*
+# Use a full python image instead of 'slim' - it's bigger but has all the tools
+FROM python:3.10
 
 # Set working directory
 WORKDIR /app
 
 # Copy requirements and install
 COPY requirements.txt .
+
+# We add --upgrade pip just to be safe
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the code
