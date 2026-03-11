@@ -1,0 +1,6 @@
+apiVersion: v2
+name: my-pos-chart
+description: A Helm chart for our Offline POS System
+type: application
+version: 0.1.0
+appVersion: "1.0"
