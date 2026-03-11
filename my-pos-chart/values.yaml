@@ -1,4 +1,4 @@
-replicaCount: 5
+replicaCount: 1
 image:
   repository: walialakshay/cloud-native-pos
   tag: "latest"
