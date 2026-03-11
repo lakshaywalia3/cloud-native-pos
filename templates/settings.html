@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>⚙️ Settings</h1>
+    </div>
+
+    <div class="settings-section form-container" style="max-width: 500px;">
+        <h2>Change Admin Password</h2>
+        <form method="POST" action="{{ url_for('settings') }}">
+            <label for="new_password">New Password:</label>
+            <input type="password" id="new_password" name="new_password" placeholder="Enter new password..." required minlength="5">
+            
+            <div style="margin-top: 20px;">
+                <button type="submit" class="btn-checkout">Update Password</button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="settings-section form-container" style="max-width: 500px; margin-top: 20px;">
+        <h2>Theme Preferences</h2>
+        <p>Toggle between Light and Dark mode for the POS terminal.</p>
+        <button onclick="toggleTheme()" class="btn-secondary">Toggle Dark Mode</button>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function toggleTheme() {
+        const body = document.documentElement;
+        body.classList.toggle('dark-mode');
+        
+        // Save preference to localStorage so it remembers next time
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+    }
+</script>
+{% endblock %}
