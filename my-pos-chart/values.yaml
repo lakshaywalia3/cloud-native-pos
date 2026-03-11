@@ -1,7 +1,7 @@
 replicaCount: 3
 image:
   repository: walialakshay/cloud-native-pos
-  tag: "v1"
+  tag: "latest"
 service:
   type: LoadBalancer
   port: 5000

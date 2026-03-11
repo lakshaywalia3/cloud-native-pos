@@ -15,5 +15,6 @@ spec:
       containers:
         - name: pos-container
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
